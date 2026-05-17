@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#1A1A2E">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="内存修改"
+        android:textSize="22sp"
+        android:textColor="#E94560"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <!-- 搜索区域 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/etCurrentValue"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:hint="当前金币数"
+            android:textColor="#FFF"
+            android:textColorHint="#666"
+            android:background="#16213E"
+            android:padding="12dp"
+            android:inputType="number"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="搜索"
+            android:textColor="#FFF"
+            android:backgroundTint="#0F3460" />
+
+    </LinearLayout>
+
+    <!-- 修改区域 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/etNewValue"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:hint="新数值"
+            android:textColor="#FFF"
+            android:textColorHint="#666"
+            android:background="#16213E"
+            android:padding="12dp"
+            android:inputType="number"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnModify"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="修改"
+            android:textColor="#FFF"
+            android:backgroundTint="#E94560" />
+
+    </LinearLayout>
+
+    <!-- 结果区域 -->
+    <TextView
+        android:id="@+id/tvResults"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#16213E"
+        android:text="搜索结果将显示在这里\n\n1. 输入当前数值\n2. 点击搜索\n3. 在游戏中改变数值\n4. 再次搜索精确定位"
+        android:textColor="#AAA"
+        android:textSize="13sp"
+        android:padding="12dp"
+        android:gravity="top|start"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnFloat"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="启动悬浮窗"
+        android:textColor="#FFF"
+        android:backgroundTint="#0F3460" />
+
+</LinearLayout>

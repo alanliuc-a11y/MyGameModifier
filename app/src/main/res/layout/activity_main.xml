@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#1A1A2E">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我的游戏修改器"
+        android:textSize="28sp"
+        android:textColor="#E94560"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="48dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自开发版 v1.0"
+        android:textSize="14sp"
+        android:textColor="#888"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="48dp" />
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="未选择游戏"
+        android:textSize="16sp"
+        android:textColor="#AAA"
+        android:gravity="center"
+        android:layout_marginBottom="32dp" />
+
+    <Button
+        android:id="@+id/btnSelectGame"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="选择游戏APK"
+        android:textSize="16sp"
+        android:textColor="#FFF"
+        android:backgroundTint="#0F3460"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnStartModifier"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="启动修改器"
+        android:textSize="16sp"
+        android:textColor="#FFF"
+        android:backgroundTint="#E94560"
+        android:enabled="false" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="\n使用说明：\n\n"
+        android:textSize="14sp"
+        android:textColor="#666" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1. 点击'选择游戏'选择要修改的游戏APK\n"
+        android:textSize="13sp"
+        android:textColor="#888" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2. 启动修改器后授予悬浮窗权限\n"
+        android:textSize="13sp"
+        android:textColor="#888" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="3. 输入当前金币数搜索内存地址\n"
+        android:textSize="13sp"
+        android:textColor="#888" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="4. 找到地址后修改为新数值\n"
+        android:textSize="13sp"
+        android:textColor="#888" />
+
+</LinearLayout>
