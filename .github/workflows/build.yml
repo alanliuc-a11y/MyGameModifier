@@ -28,15 +28,22 @@ jobs:
         gradle-version: 8.0.2
 
     - name: Build with Gradle
-      run: gradle assembleDebug --info
+      run: gradle assembleDebug 2>&1 | tee build.log
       continue-on-error: true
 
-    - name: Upload build reports on failure
+    - name: Show last 100 lines of log
       if: failure()
+      run: |
+        echo "=== LAST 100 LINES OF BUILD LOG ==="
+        tail -n 100 build.log || true
+        echo "=== END OF LOG ==="
+
+    - name: Upload build log
+      if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: build-reports
-        path: build/reports/
+        name: build-log
+        path: build.log
 
     - name: Upload APK
       if: success()
