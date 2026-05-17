@@ -29,7 +29,6 @@ jobs:
 
     - name: Build with Gradle
       run: gradle assembleDebug 2>&1 | tee build.log
-      continue-on-error: true
 
     - name: Show last 100 lines of log
       if: failure()
