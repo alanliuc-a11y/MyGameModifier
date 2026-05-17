@@ -36,7 +36,15 @@ jobs:
       run: |
         export ANDROID_HOME=$ANDROID_SDK_ROOT
         export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
-        gradle assembleDebug --stacktrace --info 2>&1 | tee build.log
+        gradle assembleDebug --stacktrace --scan || true
+      continue-on-error: true
+
+    - name: Find and display error
+      if: always()
+      run: |
+        echo "=== BUILD OUTPUT ==="
+        cat ~/.gradle/daemon/*/daemon-*.out.log 2>/dev/null | tail -100 || true
+        find . -name "*.log" -type f -exec echo "=== {} ===" \; -exec cat {} \; 2>/dev/null | head -200 || true
 
     - name: Upload build log
       if: always()
