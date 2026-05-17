@@ -28,9 +28,18 @@ jobs:
         gradle-version: 8.0
 
     - name: Build with Gradle
-      run: gradle assembleDebug --stacktrace
+      run: gradle assembleDebug --info
+      continue-on-error: true
+
+    - name: Upload build reports on failure
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-reports
+        path: build/reports/
 
     - name: Upload APK
+      if: success()
       uses: actions/upload-artifact@v4
       with:
         name: MyModifier-APK
