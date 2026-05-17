@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ main ]
 
-env:
-  ANDROID_HOME: ${{ runner.tool_cache }}/android-sdk
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -37,11 +34,9 @@ jobs:
 
     - name: Build with Gradle
       run: |
-        export ANDROID_HOME=$HOME/android-sdk
+        export ANDROID_HOME=$ANDROID_SDK_ROOT
         export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
         gradle assembleDebug --stacktrace --info 2>&1 | tee build.log
-      env:
-        ANDROID_HOME: ${{ runner.tool_cache }}/android-sdk
 
     - name: Upload build log
       if: always()
