@@ -23,7 +23,13 @@ jobs:
       uses: android-actions/setup-android@v2
 
     - name: Build with Gradle
-      run: gradle assembleDebug
+      run: |
+        # Generate gradlew if not exists
+        if [ ! -f "./gradlew" ]; then
+          gradle wrapper --gradle-version 8.0
+        fi
+        chmod +x gradlew
+        ./gradlew assembleDebug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
