@@ -24,8 +24,16 @@ jobs:
         cd $GITHUB_WORKSPACE
         ls -la
         echo "=== Starting Build ==="
-        gradle assembleDebug 2>&1 || echo "BUILD EXIT CODE: $?"
+        gradle assembleDebug 2>&1 | tee build-output.txt
+        echo "=== Build finished with exit code: ${PIPESTATUS[0]} ==="
       shell: bash
+
+    - name: Upload build output
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-output
+        path: build-output.txt
     
     - name: Check APK exists
       run: |
