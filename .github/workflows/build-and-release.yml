@@ -46,21 +46,16 @@ jobs:
         retention-days: 30
     
     - name: Create Release
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      uses: softprops/action-gh-release@v1
+      if: github.event_name == 'push'
+      uses: ncipollo/release-action@v1
       with:
-        tag_name: v${{ github.run_number }}
+        tag: v${{ github.run_number }}
         name: Release v${{ github.run_number }}
         body: |
           ## My Game Modifier v${{ github.run_number }}
           
           ### 下载
-          - 📱 APK文件已上传到Release Assets
-          
-          ### 安装
-          1. 下载 `MyGameModifier.apk`
-          2. 在Android设备上安装
-          3. 授予必要权限
+          📱 下载 `MyGameModifier.apk` 安装到Android设备
           
           ### 功能
           - 内存搜索
@@ -69,10 +64,6 @@ jobs:
           
           ### 系统要求
           - Android 5.0+
-          - 需要Root或虚拟机
-        draft: false
-        prerelease: false
-        files: |
-          app/build/outputs/apk/debug/MyGameModifier.apk
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          - 需要Root权限或虚拟机
+        artifacts: "app/build/outputs/apk/debug/MyGameModifier.apk"
+        token: ${{ secrets.GITHUB_TOKEN }}
